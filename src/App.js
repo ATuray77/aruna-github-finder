@@ -1,6 +1,7 @@
 import {BrowserRouter as Router, Route} from 'react-router-dom'// for links 
 import Navbar from './components/layout/Navbar';
 
+
 function App() {
   return (
     <Router>
