@@ -1,11 +1,12 @@
 import React from 'react'
+import Spinner from '../layout/Spinner'
 import { useEffect, useState } from 'react' //we want users to display when the page loads
 
 
 
 function UserResults() {
     const [users, setUsers] = useState([])
-    const [loading, setLoading] = useState(false)//to update the state array
+    const [loading, setLoading] = useState(true)//to update the state array
 
 
     useEffect(() => {
@@ -24,13 +25,18 @@ function UserResults() {
         setLoading(false)//changes to false after the data is loaded
     }
 
-  return (
-    <div className='grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>
-      {users.map((user) => (
-        <h3>{user.login}</h3>
-      ))}
-    </div>
-  )
+if (!loading) {
+    return (
+        <div className='grid grid-cols-1 gap-8 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2'>
+          {users.map((user) => (
+            <h3>{user.login}</h3>
+          ))}
+        </div>
+      )
+}else {
+    return <Spinner />
+}
+  
 }
 
 export default UserResults
