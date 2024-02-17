@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react' //we want users to display when the 
 
 function UserResults() {
     const [users, setUsers] = useState([])
-    const [loading, setLoading] = useState(true)//to update the state array
+    const [loading, setLoading] = useState(false)//to update the state array
 
 
     useEffect(() => {
